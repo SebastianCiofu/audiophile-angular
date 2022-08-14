@@ -1,0 +1,331 @@
+<section class="nav">
+  <app-header></app-header>
+</section>
+<section class="page">
+  <p (click)="back()" class="back">Go Back</p>
+
+  <section class="checkout" *ngIf="cartItemList.length > 0">
+    <form [formGroup]="checkoutForm">
+      <h2>CHECKOUT</h2>
+      <h6>BILLING DETAILS</h6>
+      <div class="grid">
+        <div class="name">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            formControlName="name"
+            [ngClass]="{
+              invalid:
+                checkoutForm.get('name')?.invalid &&
+                checkoutForm.get('name')?.touched
+            }"
+            placeholder="John Doe"
+          />
+          <div
+            *ngIf="
+              checkoutForm.get('name')?.invalid &&
+              checkoutForm.get('name')?.touched
+            "
+          >
+            Please enter your name
+          </div>
+        </div>
+        <div class="email">
+          <label for="email">Email Adress</label>
+          <input
+            type="text"
+            id="email"
+            formControlName="email"
+            [ngClass]="{
+              invalid:
+                checkoutForm.get('email')?.invalid &&
+                checkoutForm.get('email')?.touched
+            }"
+            placeholder="john@email.com"
+          />
+          <div
+            *ngIf="
+              checkoutForm.get('email')?.invalid &&
+              checkoutForm.get('email')?.touched
+            "
+          >
+            Please enter a valid email
+          </div>
+        </div>
+        <div class="phone">
+          <label for="phone">Phone Number</label>
+          <input
+            type="number"
+            id="phone"
+            formControlName="phone"
+            [ngClass]="{
+              invalid:
+                checkoutForm.get('phone')?.invalid &&
+                checkoutForm.get('phone')?.touched
+            }"
+            placeholder="072 341 2314"
+          />
+          <div
+            *ngIf="
+              checkoutForm.get('phone')?.invalid &&
+              checkoutForm.get('phone')?.touched
+            "
+          >
+            Please enter your phone number
+          </div>
+        </div>
+      </div>
+      <h6>SHIPPING INFO</h6>
+      <div id="grid-adress">
+        <div class="adress">
+          <label for="adress">Your Adress</label>
+          <input
+            type="text"
+            id="adress"
+            formControlName="adress"
+            [ngClass]="{
+              invalid:
+                checkoutForm.get('adress')?.invalid &&
+                checkoutForm.get('adress')?.touched
+            }"
+            placeholder="Your Adress 162"
+          />
+          <div
+            *ngIf="
+              checkoutForm.get('adress')?.invalid &&
+              checkoutForm.get('adress')?.touched
+            "
+          >
+            Please enter your adress
+          </div>
+        </div>
+        <div>
+          <label for="zip">ZIP Code</label>
+          <input
+            type="number"
+            id="zip"
+            formControlName="zip"
+            [ngClass]="{
+              invalid:
+                checkoutForm.get('zip')?.invalid &&
+                checkoutForm.get('zip')?.touched
+            }"
+            placeholder="700028"
+          />
+          <div
+            *ngIf="
+              checkoutForm.get('zip')?.invalid &&
+              checkoutForm.get('zip')?.touched
+            "
+          >
+            Please enter your ZIP Code
+          </div>
+        </div>
+        <div>
+          <label for="city">City</label>
+          <input
+            type="text"
+            id="city"
+            formControlName="city"
+            [ngClass]="{
+              invalid:
+                checkoutForm.get('city')?.invalid &&
+                checkoutForm.get('city')?.touched
+            }"
+            placeholder="Iasi"
+          />
+          <div
+            *ngIf="
+              checkoutForm.get('city')?.invalid &&
+              checkoutForm.get('city')?.touched
+            "
+          >
+            Please enter your city
+          </div>
+        </div>
+        <div>
+          <label for="country">Country</label>
+          <input
+            type="text"
+            id="country"
+            formControlName="country"
+            [ngClass]="{
+              invalid:
+                checkoutForm.get('country')?.invalid &&
+                checkoutForm.get('country')?.touched
+            }"
+            placeholder="Romania"
+          />
+          <div
+            *ngIf="
+              checkoutForm.get('country')?.invalid &&
+              checkoutForm.get('country')?.touched
+            "
+          >
+            Please enter your country
+          </div>
+        </div>
+      </div>
+
+      <h6>PAYMENT DETAILS</h6>
+      <div class="radio_pay" id="radio-grid">
+        <legend>Payment Method</legend>
+        <mat-radio-group
+          aria-label="Payment Method"
+          formControlName="paymentMethod"
+        >
+          <div>
+            <mat-radio-button value="emoney">e-Money</mat-radio-button>
+          </div>
+          <div>
+            <mat-radio-button value="cash">Cash on Delivery</mat-radio-button>
+          </div>
+          <div
+            *ngIf="
+              checkoutForm.get('paymentMethod')?.invalid &&
+              checkoutForm.get('paymentMethod')?.touched
+            "
+          >
+            Please enter a payment method
+          </div>
+        </mat-radio-group>
+      </div>
+      <div id="emoney">
+        <div>
+          <label for="emoneyNumber">e-Money Number</label>
+          <input
+            type="text"
+            id="emoneyNumber"
+            formControlName="emoneyNumber"
+            [ngClass]="{
+              invalid:
+                checkoutForm.get('emoneyNumber')?.invalid &&
+                checkoutForm.get('emoneyNumber')?.touched
+            }"
+            placeholder="102101234"
+          />
+          <div
+            *ngIf="
+              checkoutForm.get('emoneyNumber')?.invalid &&
+              checkoutForm.get('emoneyNumber')?.touched
+            "
+          >
+            Please enter your e-money number
+          </div>
+        </div>
+        <div>
+          <label for="emoneyPin">e-Money PIN</label>
+          <input
+            type="text"
+            id="emoneyPin"
+            formControlName="emoneyPin"
+            [ngClass]="{
+              invalid:
+                checkoutForm.get('emoneyPIn')?.invalid &&
+                checkoutForm.get('emoneyPIn')?.touched
+            }"
+            placeholder="1021"
+          />
+          <div
+            *ngIf="
+              checkoutForm.get('emoneyPIn')?.invalid &&
+              checkoutForm.get('emoneyPIn')?.touched
+            "
+          >
+            Please enter your PIN
+          </div>
+        </div>
+      </div>
+      <button
+        (click)="modalWindow()"
+        type="submit"
+        [disabled]="!checkoutForm.valid"
+      >
+        CONTINUE & PAY
+      </button>
+    </form>
+  </section>
+
+  <section class="summary">
+    <h3>SUMMARY</h3>
+    <div class="empty" *ngIf="cartItemList.length < 1">
+      <p>Your cart is empty</p>
+      <button routerLink="/headphones">SHOP NOW</button>
+    </div>
+    <ul>
+      <li *ngFor="let article of cartItemList">
+        <img src="{{ article.image.mobile }}" alt="img" />
+        <div>
+          <h6>{{ article.name }}</h6>
+          <p>{{ article.price | currency }}</p>
+        </div>
+        <p>
+          <button (click)="removeItem(article)">Remove</button>
+          <button class="btn">
+            <span (click)="chooseQty('-', article)">-</span>
+            {{ article.qty }}
+            <span (click)="chooseQty('+', article)">+</span>
+          </button>
+        </p>
+      </li>
+    </ul>
+    <div class="total">
+      <h5>TOTAL</h5>
+      <p *ngIf="total > 0">{{ total | currency }}</p>
+    </div>
+    <div class="shipping">
+      <h5>SHIPPING</h5>
+      <p *ngIf="total > 0">{{ shipping | currency }}</p>
+    </div>
+    <div class="vat">
+      <h5>VAT(INCLUDED)</h5>
+      <p *ngIf="total > 0">{{ vat | currency }}</p>
+    </div>
+    <div class="grand_total">
+      <h5>GRAND TOTAL</h5>
+      <p *ngIf="total > 0">{{ grandTotal | currency }}</p>
+    </div>
+  </section>
+</section>
+
+<div class="modal" [class.hidden]="modal">
+  <img
+    src="./../../assets/checkout/icon-order-confirmation.svg"
+    alt="order confirmation"
+    class="check"
+  />
+  <h1>THANK YOUR FOR YOUR ORDER</h1>
+  <p class="p_email">You will receive an email confirmation shortly.</p>
+
+  <div class="item" *ngIf="cartItemList[0]">
+    <div class="all_review">
+      <div class="review">
+        <img src="{{ cartItemList[0].image.mobile }}" alt="image item" />
+        <div>
+          <h3>{{ cartItemList[0].name }}</h3>
+          <p>{{ cartItemList[0].price | currency }}</p>
+        </div>
+        <p>x{{ cartItemList[0].qty }}</p>
+      </div>
+      <p class="length">and {{ cartItemList.length - 1 }} other item(s)</p>
+    </div>
+    <div class="grand">
+      <h3>GRAND TOTAL</h3>
+      <p>{{ grandTotal | currency }}</p>
+    </div>
+  </div>
+
+  <button routerLink="/" (click)="resetCart()" class="back">
+    BACK TO HOME
+  </button>
+</div>
+
+<div
+  class="overlayCart"
+  [class.hidden]="modal"
+  (click)="modalWindow()"
+  (click)="resetCart()"
+></div>
+
+<app-footer></app-footer>

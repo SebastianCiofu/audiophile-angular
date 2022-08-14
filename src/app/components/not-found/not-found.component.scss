@@ -1,0 +1,42 @@
+@import "./../../../styles.scss";
+
+main {
+  min-height: 80vh;
+  background-color: $grey-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h1,
+  h2,
+  p,
+  button {
+    margin: 1rem 0;
+    letter-spacing: 0.1rem;
+  }
+  h1 {
+    font-size: 10rem;
+  }
+  h2 {
+    font-size: 3.2rem;
+    text-align: center;
+    color: $light-orange;
+  }
+  p {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+  button {
+    background-color: $black-color;
+    border: none;
+    color: $white-color;
+    padding: 1.6rem 3.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in;
+  }
+  button:hover {
+    background-color: $white-color;
+    color: $black-color;
+  }
+}

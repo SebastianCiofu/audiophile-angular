@@ -1,0 +1,48 @@
+<section class="nav">
+  <app-header></app-header>
+</section>
+
+<main class="container">
+  <section>
+    <div class="input-container">
+      <div>
+        <label for="search">
+          <mat-icon
+            class="search-icon"
+            routerLink="/search"
+            routerLinkActive="active"
+            >search
+          </mat-icon></label
+        >
+        <input
+          type="text"
+          placeholder="Search..."
+          id="search"
+          [(ngModel)]="filteredStatus"
+        />
+      </div>
+      <select name="category" id="category" [(ngModel)]="filteredStatus">
+        <option value="">Category</option>
+        <option *ngFor="let item of category" [value]="item">
+          {{ item }}
+        </option>
+      </select>
+    </div>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="
+          let item of data | filter: filteredStatus.toLowerCase():'category'
+        "
+      >
+        <img src="{{ item.image.mobile }}" alt="" />
+        <h2>{{ item.name }}</h2>
+        <p>{{ item.price | currency }}</p>
+        <button (click)="setArticle(item)" routerLink="/article">
+          SEE PRODUCT
+        </button>
+      </li>
+    </ul>
+  </section>
+</main>
+<app-footer></app-footer>

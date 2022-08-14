@@ -1,1 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+$light-orange: #d87d4a;
+$light-black: #101010;
+$grey-color: #f1f1f1;
+$dark-white: #fafafa;
+$black-color: #000000;
+$salmon-color: #fbaf85;
+$white-color: #ffffff;
+@import url("https://fonts.googleapis.com/css2?family=Manrope&family=Montserrat&family=Poppins:wght@200&family=Roboto&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: "Manrope", "Helvetica Neue", sans-serif;
+  background-color: #fafafa;
+}

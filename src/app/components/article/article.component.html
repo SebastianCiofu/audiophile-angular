@@ -1,0 +1,112 @@
+<section class="nav">
+  <app-header></app-header>
+</section>
+<section>
+  <div class="headphones_list">
+    <p class="back" (click)="back()">Go Back</p>
+    <article class="headphone_1">
+      <div class="image">
+        <img [src]="article.image.desktop" alt="selected product image" />
+      </div>
+      <div class="details">
+        <h3>NEW PRODUCT</h3>
+        <h2>{{ article.name }}</h2>
+        <p>
+          {{ article.description }}
+        </p>
+
+        <p class="price">{{ article.price | currency }}</p>
+
+        <div class="adding">
+          <button
+            class="btn"
+            (click)="addToCart(article)"
+            (click)="modalWindow()"
+          >
+            ADD TO CART
+          </button>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="features_section">
+  <div class="feauture_grid">
+    <div class="features">
+      <h2>FEATURES</h2>
+      <p>
+        {{ article.features }}
+      </p>
+    </div>
+    <div class="in_box">
+      <h2>IN THE BOX</h2>
+      <ul>
+        <li *ngFor="let qty of article.includes">
+          <span>{{ qty.quantity }}x </span>{{ qty.item }}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="pictures">
+    <div class="flex-pictures">
+      <div class="picture_1">
+        <img src="{{ article.gallery.first.desktop }}" alt="img" />
+      </div>
+      <div class="picture_2">
+        <img src="{{ article.gallery.second.desktop }}" alt="img" />
+      </div>
+    </div>
+    <div class="picture_3">
+      <img src="{{ article.gallery.third.desktop }}" alt="img" />
+    </div>
+  </div>
+
+  <h2 class="may-also-like">YOU MAY ALSO LIKE</h2>
+
+  <ul class="products">
+    <li class="product" *ngFor="let item of article.others">
+      <div class="product_image">
+        <picture>
+          <source [srcset]="item.image.tablet" media="(min-width: 801px)" />
+          <img [src]="item.image.mobile" alt="you may also like" />
+        </picture>
+      </div>
+      <h3>{{ item.name }}</h3>
+      <button (click)="changeArticle(item)">SEE PRODUCT</button>
+    </li>
+  </ul>
+</section>
+
+<app-article-cards></app-article-cards>
+<app-location-story></app-location-story>
+<app-footer></app-footer>
+
+<div class="modal" [class.hidden]="modal">
+  <div class="cart_remove">
+    <h3>CART ({{ cartItemList.length }})</h3>
+    <button (click)="removeAll()">Remove all</button>
+  </div>
+  <div class="empty" *ngIf="cartItemList.length < 1">
+    <p>Your cart is empty</p>
+  </div>
+  <ul>
+    <li *ngFor="let item of cartItemList">
+      <img src="{{ item.image.mobile }}" alt="img" />
+      <div>
+        <h5>{{ item.name }}</h5>
+        <h6>{{ item.price | currency }}</h6>
+      </div>
+      <button class="btn-qty">
+        <span (click)="chooseQty('-', item)">-</span>{{ item.qty
+        }}<span (click)="chooseQty('+', item)">+</span>
+      </button>
+    </li>
+  </ul>
+  <div class="total_cart">
+    <h6>TOTAL</h6>
+    <p>{{ total | currency }}</p>
+  </div>
+  <button class="btn-checkout" routerLink="/checkout">CHECKOUT</button>
+</div>
+<div class="overlayCart" [class.hidden]="modal" (click)="modalWindow()"></div>

@@ -1,0 +1,35 @@
+<section class="nav">
+  <app-header></app-header>
+  <header>
+    <h1>EARPHONES</h1>
+  </header>
+</section>
+
+<section class="headphones_list">
+  <article class="headphone_1">
+    <div class="image">
+      <img [src]="data[0].image.desktop" alt="img" />
+    </div>
+    <div class="details">
+      <h3>NEW PRODUCT</h3>
+      <h2>{{ data[0].name }}</h2>
+      <p>
+        {{ data[0].description }}
+      </p>
+      <button
+        routerLink="/article"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        (click)="showArticle(data[0])"
+      >
+        SEE PRODUCT
+      </button>
+    </div>
+  </article>
+</section>
+
+<app-article-cards></app-article-cards>
+
+<app-location-story></app-location-story>
+
+<app-footer></app-footer>

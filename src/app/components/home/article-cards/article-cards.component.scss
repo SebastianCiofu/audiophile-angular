@@ -1,0 +1,72 @@
+@import "./../../../../styles.scss";
+
+.articles {
+  min-height: 95vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $dark-white;
+  padding: 5rem 0;
+
+  article {
+    background-color: $grey-color;
+    width: 85%;
+    min-height: 15vh;
+    margin: 3.2rem auto;
+    line-height: 3.2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1.28rem;
+    cursor: pointer;
+
+    a {
+      margin-bottom: 2.6rem;
+      color: rgba(0, 0, 0, 0.5);
+      font-weight: bold;
+      letter-spacing: 0.16rem;
+      font-size: 1.3rem;
+      padding-top: 0.48rem;
+      animation: moveInRight 1s ease-out;
+      cursor: pointer;
+
+      span {
+        margin-left: 1.1rem;
+      }
+    }
+    a:hover {
+      color: $light-orange;
+    }
+
+    .article_image {
+      transform: translateY(-5.2rem);
+      margin-bottom: -5.2rem;
+    }
+    h6 {
+      font-weight: bold;
+      font-size: 1.5rem;
+      letter-spacing: 0.16rem;
+      animation: moveInLeft 1s ease-out;
+    }
+  }
+}
+
+@media (min-width: 801px) {
+  .articles {
+    flex-direction: row;
+    padding: 7rem 3.2rem;
+    min-height: 40vh;
+    article {
+      margin: 0 1.6rem;
+    }
+  }
+}
+@media (min-width: 1025px) {
+  .articles {
+    padding: 7rem 20rem;
+    min-height: 50vh;
+  }
+}

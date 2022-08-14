@@ -1,0 +1,51 @@
+<section class="nav">
+  <app-header></app-header>
+  <header>
+    <h1>SPEAKERS</h1>
+  </header>
+</section>
+
+<section class="headphones_list">
+  <article class="headphone_1">
+    <div class="image"><img [src]="data[4].image.desktop" alt="img" /></div>
+    <div class="details">
+      <h3>NEW PRODUCT</h3>
+      <h2>{{ data[4].name }}</h2>
+      <p>
+        {{ data[4].description }}
+      </p>
+      <button
+        routerLink="/article"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        (click)="showArticle(data[4])"
+      >
+        SEE PRODUCT
+      </button>
+    </div>
+  </article>
+  <article class="headphone_2">
+    <div class="image"><img [src]="data[5].image.desktop" alt="img" /></div>
+    <div class="details">
+      <h3>NEW PRODUCT</h3>
+      <h2>{{ data[5].name }}</h2>
+      <p>
+        {{ data[5].description }}
+      </p>
+      <button
+        routerLink="/article"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        (click)="showArticle(data[5])"
+      >
+        SEE PRODUCT
+      </button>
+    </div>
+  </article>
+</section>
+
+<app-article-cards></app-article-cards>
+
+<app-location-story></app-location-story>
+
+<app-footer></app-footer>

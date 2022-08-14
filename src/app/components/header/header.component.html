@@ -1,0 +1,84 @@
+<nav>
+  <a class="logo" id="logo" routerLink="/">
+    <img src="./../../assets/shared/audiophile.svg" alt="logo" />
+  </a>
+  <img
+    src="./../../assets/shared/tablet/icon-hamburger.svg"
+    alt="hamburger menu"
+    class="hamburger"
+    (click)="overlay = !overlay"
+  />
+  <div class="log-in-cart">
+    <mat-icon
+      matBadge="{{ badge.length }}"
+      matBadgeColor="warn"
+      class="cart"
+      routerLink="/checkout"
+      routerLinkActive="active"
+      >shopping_cart</mat-icon
+    >
+    <mat-icon class="log-in" routerLinkActive="active" routerLink="/log-in"
+      >person</mat-icon
+    >
+    <mat-icon class="search-icon" routerLink="/search" routerLinkActive="active"
+      >search
+    </mat-icon>
+  </div>
+  <ul class="nav_menu hidden">
+    <li>
+      <a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page"
+        >Home</a
+      >
+    </li>
+    <li>
+      <a
+        routerLink="/headphones"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        >Headphone</a
+      >
+    </li>
+    <li>
+      <a
+        routerLink="/speakers"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        >Speakers</a
+      >
+    </li>
+    <li>
+      <a
+        routerLink="/earphones"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        >Earphones</a
+      >
+    </li>
+  </ul>
+  <div class="overlay" [class.overlay--active]="overlay">
+    <a class="close" (click)="overlay = !overlay">&times;</a>
+    <div class="overlay__content" (click)="overlay = !overlay">
+      <a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page"
+        >Home</a
+      >
+      <a
+        routerLink="/headphones"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        >Headphone</a
+      >
+      <a
+        routerLink="/speakers"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        >Speakers</a
+      >
+      <a
+        routerLink="/earphones"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        >Earphones</a
+      >
+    </div>
+  </div>
+</nav>

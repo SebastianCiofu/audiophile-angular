@@ -1,0 +1,92 @@
+<section class="nav">
+  <app-header></app-header>
+</section>
+
+<main class="container">
+  <section>
+    <article class="headphones">
+      <img
+        src="./../../assets/log-in/Bitmap (1).png"
+        alt="headphones"
+        class="logo"
+      />
+    </article>
+
+    <form
+      class="log_in"
+      [formGroup]="LogInForm"
+      (ngSubmit)="onSubmit()"
+      *ngIf="!loggedIn"
+    >
+      <img src="./../../assets/shared/audiophile 2.svg" alt="logo" />
+
+      <label for="email">E-mail</label>
+      <input
+        type="email"
+        name="email"
+        formControlName="email"
+        [ngClass]="{
+          invalid:
+            LogInForm.get('email')?.invalid && LogInForm.get('email')?.touched
+        }"
+      />
+      <div
+        *ngIf="
+          LogInForm.get('email')?.invalid && LogInForm.get('email')?.touched
+        "
+      >
+        <p style="font-size: 1.3rem; text-align: left">
+          Please enter your email adress
+        </p>
+      </div>
+
+      <label for="password">Password</label>
+      <input
+        type="password"
+        name="password"
+        formControlName="password"
+        minlength="6"
+        [ngClass]="{
+          invalid:
+            LogInForm.get('password')?.invalid &&
+            LogInForm.get('password')?.touched
+        }"
+      />
+      <div
+        *ngIf="
+          LogInForm.get('password')?.invalid &&
+          LogInForm.get('password')?.touched
+        "
+      >
+        <p style="font-size: 1.3rem; text-align: left">
+          Please enter your password(6-character)
+        </p>
+      </div>
+
+      <button
+        type="submit"
+        [disabled]="!LogInForm.valid"
+        (click)="logIn()"
+        routerLink="/"
+      >
+        {{ isLogin ? "Log In" : "Sign In" }}
+      </button>
+
+      <p *ngIf="isLogin">
+        Not registered ?<br />
+        <a (click)="switchTo()" style="cursor: pointer"> Register now</a>
+      </p>
+      <button class="sign_in-btn" type="button" (click)="switchTo()">
+        {{ isLogin ? "Switch To Sign In" : "Switch to Log In" }}
+      </button>
+    </form>
+    <div class="logged_in" *ngIf="loggedIn">
+      <img src="./../../assets/shared/audiophile 2.svg" alt="logo" />
+      <h4>You are already <span>logged in</span></h4>
+      <hr />
+      <button (click)="logOut()">Log out</button>
+    </div>
+  </section>
+</main>
+
+<app-footer></app-footer>

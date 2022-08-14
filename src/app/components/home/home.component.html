@@ -1,0 +1,77 @@
+<section class="hero_nav overlay">
+  <header class="menu"><app-header></app-header></header>
+
+  <div>
+    <h2>NEW PRODUCT</h2>
+    <h1>{{ data[3].name }}</h1>
+
+    <p>
+      Experience natural, lifelike audio and exceptional build quality made for
+      the passionate music enthusiast.
+    </p>
+    <button
+      routerLink="/article"
+      routerLinkActive="active"
+      ariaCurrentWhenActive="page"
+      (click)="showArticle(data[3])"
+    >
+      SEE PRODUCT
+    </button>
+  </div>
+</section>
+
+<app-article-cards></app-article-cards>
+
+<section class="see-products">
+  <article class="see-speaker" id="see-speaker-grid">
+    <img
+      srcset="./../../assets/home/mobile/image-speaker-zx9.png"
+      alt="see product zx9 speaker"
+    />
+    <div>
+      <h3>
+        {{ data[5].name }}
+      </h3>
+      <p>
+        Upgrade to premium speakers that are phenomenally built to deliver truly
+        remarkable sound.
+      </p>
+      <button
+        routerLink="/article"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        (click)="showArticle(data[5])"
+      >
+        SEE PRODUCT
+      </button>
+    </div>
+  </article>
+  <article class="see-second-speaker">
+    <h4>{{ data[4].name }}</h4>
+    <button
+      routerLink="/article"
+      routerLinkActive="active"
+      ariaCurrentWhenActive="page"
+      (click)="showArticle(data[4])"
+    >
+      SEE PRODUCT
+    </button>
+  </article>
+  <div class="grid-earphones">
+    <article class="earphones-bg"></article>
+    <article class="see-earphones">
+      <h4>{{ data[0].name }}</h4>
+      <button
+        routerLink="/article"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        (click)="showArticle(data[0])"
+      >
+        SEE PRODUCT
+      </button>
+    </article>
+  </div>
+</section>
+
+<app-location-story></app-location-story>
+<app-footer></app-footer>

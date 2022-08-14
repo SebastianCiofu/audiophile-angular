@@ -1,0 +1,64 @@
+@import "./../../../../styles.scss";
+.story {
+  background-color: $dark-white;
+  margin: 3.2rem;
+
+  img {
+    width: 100%;
+    border-radius: 0.8rem;
+  }
+
+  h4 {
+    font-size: 2.8rem;
+    text-align: center;
+    color: $black-color;
+    padding: 3.2rem 3.2rem;
+    letter-spacing: 0.1rem;
+    font-weight: bold;
+
+    span {
+      color: $light-orange;
+    }
+  }
+  p {
+    font-size: 1.8rem;
+    line-height: 2.5rem;
+    text-align: center;
+    font-weight: 500;
+    color: grey;
+    margin-bottom: 8rem;
+  }
+}
+@media (min-width: 801px) {
+  .story {
+    h4 {
+      font-size: 4rem;
+    }
+  }
+}
+@media (min-width: 1025px) {
+  .story {
+    margin: 5rem 20rem;
+    display: flex;
+    flex-direction: row-reverse;
+
+    .image_man {
+      flex: 0 0 50%;
+
+      img {
+        max-width: 100%;
+      }
+    }
+    .story_p {
+      p,
+      h4 {
+        text-align: left;
+        margin: 3.2rem;
+        margin-left: 0;
+      }
+      h4 {
+        padding: 0;
+      }
+    }
+  }
+}
