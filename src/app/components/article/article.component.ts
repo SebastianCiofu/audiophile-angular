@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Location } from '@angular/common';
 import { CheckoutService } from 'src/app/services/checkout.service';
 import { Other, Product } from 'src/app/interfaces/interface';
@@ -31,8 +31,8 @@ export class ArticleComponent {
 
   getTotal() {
     this.total = 0;
-    for (let i = 0; i < this.cartItemList.length; i++) {
-      this.total += this.cartItemList[i].qty * this.cartItemList[i].price;
+    for (let item of this.cartItemList) {
+      this.total += item.qty * item.price;
     }
   }
 

@@ -73,8 +73,8 @@ export class CheckoutComponent implements OnInit {
 
   getTotal() {
     this.total = 0;
-    for (let i = 0; i < this.cartItemList.length; i++) {
-      this.total += this.cartItemList[i].qty * this.cartItemList[i].price;
+    for (let item of this.cartItemList) {
+      this.total += item.qty * item.price;
       this.vat = this.total * 0.2;
       this.grandTotal = this.shipping + this.total + this.vat;
     }
