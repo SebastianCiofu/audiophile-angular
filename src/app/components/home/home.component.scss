@@ -295,6 +295,8 @@
   .hero_nav {
     min-height: 90vh;
     background-image: url("./../../../assets/home/desktop/image-hero.png");
+    background-color: $black-color;
+
     border-radius: 1rem;
     div {
       justify-content: center;

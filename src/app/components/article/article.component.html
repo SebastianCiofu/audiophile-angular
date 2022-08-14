@@ -18,13 +18,7 @@
         <p class="price">{{ article.price | currency }}</p>
 
         <div class="adding">
-          <button
-            class="btn"
-            (click)="addToCart(article)"
-            (click)="modalWindow()"
-          >
-            ADD TO CART
-          </button>
+          <button class="btn" (click)="addToCart(article)">ADD TO CART</button>
         </div>
       </div>
     </article>
@@ -90,32 +84,3 @@
 <app-article-cards></app-article-cards>
 <app-location-story></app-location-story>
 <app-footer></app-footer>
-
-<div class="modal" [class.hidden]="modal">
-  <div class="cart_remove">
-    <h3>CART ({{ cartItemList.length }})</h3>
-    <button (click)="removeAll()">Remove all</button>
-  </div>
-  <div class="empty" *ngIf="cartItemList.length < 1">
-    <p>Your cart is empty</p>
-  </div>
-  <ul>
-    <li *ngFor="let item of cartItemList">
-      <img src="{{ item.image.mobile }}" alt="image of the product" />
-      <div>
-        <h5>{{ item.name }}</h5>
-        <h6>{{ item.price | currency }}</h6>
-      </div>
-      <button class="btn-qty">
-        <span (click)="chooseQty('-', item)">-</span>{{ item.qty
-        }}<span (click)="chooseQty('+', item)">+</span>
-      </button>
-    </li>
-  </ul>
-  <div class="total_cart">
-    <h6>TOTAL</h6>
-    <p>{{ total | currency }}</p>
-  </div>
-  <button class="btn-checkout" routerLink="/checkout">CHECKOUT</button>
-</div>
-<div class="overlayCart" [class.hidden]="modal" (click)="modalWindow()"></div>

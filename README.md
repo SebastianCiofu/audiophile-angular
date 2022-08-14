@@ -1,5 +1,10 @@
 # Audiophile e-commerce website
 
+ <a href="https://angular.io/">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/240px-Angular_full_color_logo.svg.png" alt="Logo" width=72 height=72>
+  </a>
+  
+  
 ## Table of contents
 
 - [Overview](#overview)
@@ -8,6 +13,8 @@
 - [Author](#author)
 
 ## Overview
+
+[![npm](https://img.shields.io/badge/demo-online-brightgreen.svg)](https://audiophile-angular.netlify.app/)
 
 Users are able to:
 
@@ -26,6 +33,11 @@ Users are able to:
 
 ### Links
 
+ <a href="https://audiophile-angular.netlify.app/">
+      <img src="https://media.giphy.com/media/aRSsBMPFls0xaivrSz/giphy.gif" alt="Demo example"/>
+    </a>
+    <br>
+    <br>
 - Live Site URL: (https://audiophile-angular.netlify.app/)
 
 ### Built with

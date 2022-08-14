@@ -13,7 +13,8 @@
       matBadge="{{ badge.length }}"
       matBadgeColor="warn"
       class="cart"
-      routerLink="/checkout"
+      (click)="overlayCart = !overlayCart"
+      (click)="getTotal()"
       routerLinkActive="active"
       >shopping_cart</mat-icon
     >
@@ -79,6 +80,36 @@
         ariaCurrentWhenActive="page"
         >Earphones</a
       >
+    </div>
+  </div>
+  <div class="overlayCart" [class.overlayCart--active]="overlayCart">
+    <div class="overlayCart__content">
+      <div class="cart_remove">
+        <h3>CART ({{ cartItemList.length }})</h3>
+        <a class="closeCart" (click)="overlayCart = !overlayCart">&times;</a>
+      </div>
+      <div class="empty" *ngIf="cartItemList.length < 1">
+        <mat-icon>shopping_bag</mat-icon>
+        <p>Your cart is empty</p>
+      </div>
+      <ul class="shopping_bag">
+        <li *ngFor="let item of cartItemList">
+          <img src="{{ item.image.mobile }}" alt="image of the product" />
+          <div>
+            <h5>{{ item.name }}</h5>
+            <h6>{{ item.price | currency }}</h6>
+          </div>
+          <button class="btn-qty">
+            <span (click)="chooseQty('-', item)">-</span>{{ item.qty
+            }}<span (click)="chooseQty('+', item)">+</span>
+          </button>
+        </li>
+      </ul>
+      <div class="total_cart">
+        <h6>TOTAL</h6>
+        <p>{{ total | currency }}</p>
+        <button class="btn-checkout" routerLink="/checkout">CHECKOUT</button>
+      </div>
     </div>
   </div>
 </nav>
