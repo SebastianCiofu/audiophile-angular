@@ -35,7 +35,7 @@
           let item of data | filter: filteredStatus.toLowerCase():'category'
         "
       >
-        <img src="{{ item.image.mobile }}" alt="" />
+        <img src="{{ item.image.mobile }}" alt="image of the article" />
         <h2>{{ item.name }}</h2>
         <p>{{ item.price | currency }}</p>
         <button (click)="setArticle(item)" routerLink="/article">

@@ -7,12 +7,10 @@ import { CheckoutService } from 'src/app/services/checkout.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   overlay = false;
   badge = this.service.cartItemList;
   cartItemList: Product[] = this.service.getProducts();
 
   constructor(private service: CheckoutService) {}
-
-  ngOnInit(): void {}
 }

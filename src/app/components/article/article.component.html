@@ -51,14 +51,23 @@
   <div class="pictures">
     <div class="flex-pictures">
       <div class="picture_1">
-        <img src="{{ article.gallery.first.desktop }}" alt="img" />
+        <img
+          src="{{ article.gallery.first.desktop }}"
+          alt="image of the product"
+        />
       </div>
       <div class="picture_2">
-        <img src="{{ article.gallery.second.desktop }}" alt="img" />
+        <img
+          src="{{ article.gallery.second.desktop }}"
+          alt="image of the product"
+        />
       </div>
     </div>
     <div class="picture_3">
-      <img src="{{ article.gallery.third.desktop }}" alt="img" />
+      <img
+        src="{{ article.gallery.third.desktop }}"
+        alt="image of the product"
+      />
     </div>
   </div>
 
@@ -92,7 +101,7 @@
   </div>
   <ul>
     <li *ngFor="let item of cartItemList">
-      <img src="{{ item.image.mobile }}" alt="img" />
+      <img src="{{ item.image.mobile }}" alt="image of the product" />
       <div>
         <h5>{{ item.name }}</h5>
         <h6>{{ item.price | currency }}</h6>

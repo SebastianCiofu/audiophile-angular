@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CheckoutService } from 'src/app/services/checkout.service';
 
 @Component({
@@ -7,7 +7,7 @@ import { CheckoutService } from 'src/app/services/checkout.service';
   templateUrl: './log-in.component.html',
   styleUrls: ['./log-in.component.scss'],
 })
-export class LogInComponent implements OnInit {
+export class LogInComponent {
   isLogin = true;
   loggedIn = this.service.loggedIn;
 
@@ -17,8 +17,6 @@ export class LogInComponent implements OnInit {
   });
 
   constructor(private service: CheckoutService) {}
-
-  ngOnInit(): void {}
 
   onSubmit() {
     this.LogInForm.reset();

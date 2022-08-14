@@ -167,7 +167,7 @@
     background-image: url("./../../../assets/home/mobile/image-speaker-zx7.jpg");
     background-size: cover;
     background-position: right;
-    margin: 3.2rem 0rem;
+    margin-top: 3.2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -189,6 +189,7 @@
       padding: 1.6rem 3.2rem;
       background-color: transparent;
       margin-bottom: 8rem;
+      color: $black-color;
       border: 0.1rem solid $black-color;
       cursor: pointer;
     }
@@ -236,7 +237,7 @@
       font-weight: bold;
       padding: 1.6rem 3.2rem;
       background-color: transparent;
-
+      color: $black-color;
       border: 0.1rem solid $black-color;
       cursor: pointer;
     }

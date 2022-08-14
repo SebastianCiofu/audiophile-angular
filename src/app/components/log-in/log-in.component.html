@@ -74,14 +74,14 @@
 
       <p *ngIf="isLogin">
         Not registered ?<br />
-        <a (click)="switchTo()" style="cursor: pointer"> Register now</a>
+        <span (click)="switchTo()" style="cursor: pointer"> Register now</span>
       </p>
       <button class="sign_in-btn" type="button" (click)="switchTo()">
         {{ isLogin ? "Switch To Sign In" : "Switch to Log In" }}
       </button>
     </form>
     <div class="logged_in" *ngIf="loggedIn">
-      <img src="./../../assets/shared/audiophile 2.svg" alt="logo" />
+      <img src="./../../assets/shared/audiophile 2.svg" alt="logo audiophile" />
       <h4>You are already <span>logged in</span></h4>
       <hr />
       <button (click)="logOut()">Log out</button>

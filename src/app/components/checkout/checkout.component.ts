@@ -35,6 +35,8 @@ export class CheckoutComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTotal();
+    console.log(this.cartItemList);
+    console.log(this.service.cartItemList);
   }
 
   back() {
@@ -68,14 +70,16 @@ export class CheckoutComponent implements OnInit {
     this.service.setLocalStorage();
     this.getTotal();
   }
+
   getTotal() {
     this.total = 0;
-    this.cartItemList.forEach((item) => {
-      this.total += item.qty * item.price;
+    for (let i = 0; i < this.cartItemList.length; i++) {
+      this.total += this.cartItemList[i].qty * this.cartItemList[i].price;
       this.vat = this.total * 0.2;
       this.grandTotal = this.shipping + this.total + this.vat;
-    });
+    }
   }
+
   removeItem(product: Product) {
     let index = this.service.cartItemList.indexOf(product);
     this.service.cartItemList.splice(index, 1);

@@ -8,15 +8,13 @@ import { Other, Product } from 'src/app/interfaces/interface';
   templateUrl: './article.component.html',
   styleUrls: ['./article.component.scss'],
 })
-export class ArticleComponent implements OnInit {
+export class ArticleComponent {
   modal = true;
   article: Product = this.service.article;
   cartItemList: Product[] = this.service.getProducts();
   total = 0;
 
   constructor(private location: Location, private service: CheckoutService) {}
-
-  ngOnInit(): void {}
 
   back() {
     this.location.back();
@@ -33,9 +31,9 @@ export class ArticleComponent implements OnInit {
 
   getTotal() {
     this.total = 0;
-    this.cartItemList.forEach((item) => {
-      this.total += item.qty * item.price;
-    });
+    for (let i = 0; i < this.cartItemList.length; i++) {
+      this.total += this.cartItemList[i].qty * this.cartItemList[i].price;
+    }
   }
 
   chooseQty(value: string, product: Product) {
