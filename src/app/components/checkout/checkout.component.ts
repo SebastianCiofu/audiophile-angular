@@ -35,8 +35,6 @@ export class CheckoutComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTotal();
-    console.log(this.cartItemList);
-    console.log(this.service.cartItemList);
   }
 
   back() {
@@ -80,7 +78,7 @@ export class CheckoutComponent implements OnInit {
     }
   }
 
-  removeItem(product: Product) {
+  removeItem(product: Product): void {
     let index = this.service.cartItemList.indexOf(product);
     this.service.cartItemList.splice(index, 1);
     this.service.setLocalStorage();

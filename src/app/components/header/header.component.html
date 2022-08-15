@@ -57,7 +57,7 @@
     </li>
   </ul>
   <div class="overlay" [class.overlay--active]="overlay">
-    <a class="close" (click)="overlay = !overlay">&times;</a>
+    <p class="close" (click)="overlay = !overlay">&times;</p>
     <div class="overlay__content" (click)="overlay = !overlay">
       <a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page"
         >Home</a
@@ -86,7 +86,7 @@
     <div class="overlayCart__content">
       <div class="cart_remove">
         <h3>CART ({{ cartItemList.length }})</h3>
-        <a class="closeCart" (click)="overlayCart = !overlayCart">&times;</a>
+        <p class="closeCart" (click)="overlayCart = !overlayCart">&times;</p>
       </div>
       <div class="empty" *ngIf="cartItemList.length < 1">
         <mat-icon>shopping_bag</mat-icon>

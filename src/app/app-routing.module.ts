@@ -9,6 +9,7 @@ import { LogInComponent } from './components/log-in/log-in.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { SearchComponent } from './components/search/search.component';
 import { SpeakersComponent } from './components/speakers/speakers.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -49,7 +50,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

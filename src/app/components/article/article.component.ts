@@ -21,10 +21,6 @@ export class ArticleComponent {
 
   addToCart(article: Product) {
     this.service.addToCart(article);
-    this.getTotal();
-  }
-
-  getTotal() {
     this.total = 0;
     for (let item of this.cartItemList) {
       this.total += item.qty * item.price;
@@ -37,6 +33,7 @@ export class ArticleComponent {
     );
     if (article) {
       this.article = article;
+      window.scrollTo(0, 0);
     }
   }
 }
