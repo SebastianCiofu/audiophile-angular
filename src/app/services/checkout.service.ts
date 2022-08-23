@@ -8,9 +8,7 @@ import { Product } from '../interfaces/interface';
 export class CheckoutService {
   public article: Product = data[0];
   public data: Product[] = data;
-  public cartItemList: Product[] = JSON.parse(
-    localStorage.getItem('cartItemList') || '{}'
-  );
+  public cartItemList: Product[] = []
   public total = 0;
   public loggedIn = false;
 
@@ -29,7 +27,7 @@ export class CheckoutService {
       this.cartItemList.push(product);
     }
 
-    this.setLocalStorage();
+  
     this.getTotal();
   }
 
@@ -37,9 +35,7 @@ export class CheckoutService {
     return this.cartItemList;
   }
 
-  setLocalStorage() {
-    localStorage.setItem('cartItemList', JSON.stringify(this.cartItemList));
-  }
+  
 
   getTotal() {
     this.total = 0;

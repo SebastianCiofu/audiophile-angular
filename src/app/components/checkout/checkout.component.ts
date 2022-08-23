@@ -49,7 +49,7 @@ export class CheckoutComponent implements OnInit {
     this.cartItemList = [];
     this.service.cartItemList = this.cartItemList;
     this.checkoutForm.reset();
-    this.service.setLocalStorage();
+    
     this.getTotal();
   }
 
@@ -65,7 +65,7 @@ export class CheckoutComponent implements OnInit {
       }
       product.qty++;
     }
-    this.service.setLocalStorage();
+  
     this.getTotal();
   }
 
@@ -81,7 +81,7 @@ export class CheckoutComponent implements OnInit {
   removeItem(product: Product): void {
     let index = this.service.cartItemList.indexOf(product);
     this.service.cartItemList.splice(index, 1);
-    this.service.setLocalStorage();
+
     this.getTotal();
   }
 }

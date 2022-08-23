@@ -27,7 +27,7 @@ export class HeaderComponent {
       }
       product.qty++;
     }
-    this.service.setLocalStorage();
+  
     this.getTotal();
   }
 
@@ -40,7 +40,7 @@ export class HeaderComponent {
   removeItem(product: Product) {
     let index = this.service.cartItemList.indexOf(product);
     this.service.cartItemList.splice(index, 1);
-    this.service.setLocalStorage();
+    
     this.getTotal();
   }
 }
