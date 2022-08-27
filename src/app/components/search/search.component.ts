@@ -11,6 +11,7 @@ export class SearchComponent implements OnInit {
   data: Product[] = [];
   category: string[] = [];
   filteredStatus = '';
+  filteredPrice = '';
 
   constructor(private service: CheckoutService) {}
 
@@ -24,5 +25,17 @@ export class SearchComponent implements OnInit {
   }
   setArticle(item: Product) {
     this.service.article = item;
+  }
+
+  sortArticle() {
+    if (this.filteredPrice === 'ascending') {
+      this.data.sort((a: Product, b: Product) => {
+        return a.price - b.price;
+      });
+    } else if (this.filteredPrice === 'descending') {
+      this.data.sort((a: Product, b: Product) => {
+        return b.price - a.price;
+      });
+    }
   }
 }

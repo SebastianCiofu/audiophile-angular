@@ -21,12 +21,24 @@
           [(ngModel)]="filteredStatus"
         />
       </div>
-      <select name="category" id="category" [(ngModel)]="filteredStatus">
-        <option value="">Category</option>
-        <option *ngFor="let item of category" [value]="item">
-          {{ item }}
-        </option>
-      </select>
+      <div class="sorting">
+        <select name="category" id="category" [(ngModel)]="filteredStatus">
+          <option value="">Category</option>
+          <option *ngFor="let item of category" [value]="item">
+            {{ item }}
+          </option>
+        </select>
+        <select
+          name="category"
+          id="category"
+          [(ngModel)]="filteredPrice"
+          (change)="sortArticle()"
+        >
+          <option value="">Price</option>
+          <option [value]="'ascending'">Ascending</option>
+          <option [value]="'descending'">Descending</option>
+        </select>
+      </div>
     </div>
     <ul class="list-group">
       <li

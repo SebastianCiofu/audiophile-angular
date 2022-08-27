@@ -26,6 +26,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { FilterPipe } from './components/search/filter.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SortPipe } from './components/search/sort.pipe';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HeaderComponent,
     NotFoundComponent,
     FilterPipe,
+    SortPipe,
   ],
   imports: [
     BrowserModule,

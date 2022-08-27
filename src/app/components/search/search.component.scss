@@ -13,10 +13,14 @@
     .input-container {
       div {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
       }
     }
-
+    .sorting {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
     input {
       font-size: 1.8rem;
       padding: 0.8rem 3.6rem;
@@ -84,34 +88,42 @@
 }
 @media (min-width: 801px) {
   .container {
-    .input-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    ul {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
+    section {
+      .input-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      ul {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .sorting {
+        display: flex;
+        flex-direction: row;
+      }
     }
   }
 }
 @media (min-width: 1025px) {
   .container {
-    .input-container {
-      margin: 0 10rem;
-    }
-    ul {
-      li {
-        img {
-          max-width: 60%;
-          object-fit: cover;
+    section {
+      .input-container {
+        margin: 0 10rem;
+      }
+      ul {
+        li {
+          img {
+            max-width: 60%;
+            object-fit: cover;
+          }
         }
       }
-    }
-    .list-group{
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      .list-group {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
     }
   }
 }
