@@ -11,7 +11,7 @@ import { Other, Product } from 'src/app/interfaces/interface';
 export class ArticleComponent {
   public article: Product = this.service.article;
   public cartItemList: Product[] = this.service.getProducts();
-  public total = 0;
+  public total: number = 0;
 
   constructor(private location: Location, private service: CheckoutService) {}
 

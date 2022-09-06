@@ -11,12 +11,12 @@ import { Product } from 'src/app/interfaces/interface';
   styleUrls: ['./checkout.component.scss'],
 })
 export class CheckoutComponent implements OnInit {
-  public modal = true;
+  public modal: boolean = true;
   public cartItemList: Product[] = this.service.getProducts();
-  public shipping = 50;
-  public total = this.service.total;
-  public vat = this.total * 0.2;
-  public grandTotal = this.shipping + this.total + this.vat;
+  public shipping: number = 50;
+  public total: number = this.service.total;
+  public vat: number = this.total * 0.2;
+  public grandTotal: number = this.shipping + this.total + this.vat;
 
   public checkoutForm = new FormGroup({
     name: new FormControl(null, [Validators.required]),

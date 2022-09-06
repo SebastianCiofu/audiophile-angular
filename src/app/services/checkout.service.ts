@@ -9,8 +9,8 @@ export class CheckoutService {
   public article: Product = data[0];
   public data: Product[] = data;
   public cartItemList: Product[] = [];
-  public total = 0;
-  public loggedIn = false;
+  public total: number = 0;
+  public loggedIn: boolean = false;
 
   public addToCart(product: Product) {
     let productExists = false;
@@ -36,7 +36,7 @@ export class CheckoutService {
 
   public getTotal() {
     this.total = 0;
-    this.cartItemList.forEach((item) => {
+    this.cartItemList.forEach((item: Product) => {
       this.total += item.qty * item.price;
     });
   }

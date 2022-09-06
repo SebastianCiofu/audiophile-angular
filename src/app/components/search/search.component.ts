@@ -10,8 +10,8 @@ import { CheckoutService } from 'src/app/services/checkout.service';
 export class SearchComponent implements OnInit {
   public data: Product[] = [];
   public category: string[] = [];
-  public filteredStatus = '';
-  public filteredPrice = '';
+  public filteredStatus: string = '';
+  public filteredPrice: string = '';
   public sortedPrice: boolean = false;
 
   constructor(private service: CheckoutService) {}
@@ -19,11 +19,13 @@ export class SearchComponent implements OnInit {
   public ngOnInit(): void {
     this.category = this.service.data
       .map(
-        (item) => item.category.charAt(0).toUpperCase() + item.category.slice(1)
+        (item: Product) =>
+          item.category.charAt(0).toUpperCase() + item.category.slice(1)
       )
       .filter((value, index, self) => self.indexOf(value) === index);
     this.data = this.service.data;
   }
+
   public setArticle(item: Product) {
     this.service.article = item;
   }

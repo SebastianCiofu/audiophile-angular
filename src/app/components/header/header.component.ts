@@ -8,11 +8,11 @@ import { CheckoutService } from 'src/app/services/checkout.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  public overlay = false;
-  public badge = this.service.cartItemList;
+  public overlay: boolean = false;
+  public badge: Product[] = this.service.cartItemList;
   public cartItemList: Product[] = this.service.getProducts();
-  public overlayCart = false;
-  public total = 0;
+  public overlayCart: boolean = false;
+  public total: number = 0;
 
   constructor(private service: CheckoutService) {}
   public chooseQty(value: string, product: Product) {
@@ -37,6 +37,7 @@ export class HeaderComponent {
       this.total += item.qty * item.price;
     }
   }
+
   public removeItem(product: Product) {
     let index = this.service.cartItemList.indexOf(product);
     this.service.cartItemList.splice(index, 1);
