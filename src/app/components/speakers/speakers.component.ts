@@ -7,13 +7,13 @@ import { Product } from 'src/app/interfaces/interface';
   styleUrls: ['./speakers.component.scss'],
 })
 export class SpeakersComponent implements OnInit {
-  data: Product[] = [];
+  public data: Product[] = [];
   constructor(private service: CheckoutService) {}
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.data = this.service.data;
   }
-  showArticle(product: Product) {
+  public showArticle(product: Product) {
     this.service.article = product;
   }
 }

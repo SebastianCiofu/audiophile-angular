@@ -11,14 +11,14 @@ import { Product } from 'src/app/interfaces/interface';
   styleUrls: ['./checkout.component.scss'],
 })
 export class CheckoutComponent implements OnInit {
-  modal = true;
-  cartItemList: Product[] = this.service.getProducts();
-  shipping = 50;
-  total = this.service.total;
-  vat = this.total * 0.2;
-  grandTotal = this.shipping + this.total + this.vat;
+  public modal = true;
+  public cartItemList: Product[] = this.service.getProducts();
+  public shipping = 50;
+  public total = this.service.total;
+  public vat = this.total * 0.2;
+  public grandTotal = this.shipping + this.total + this.vat;
 
-  checkoutForm = new FormGroup({
+  public checkoutForm = new FormGroup({
     name: new FormControl(null, [Validators.required]),
     email: new FormControl(null, [Validators.required, Validators.email]),
     phone: new FormControl(null, [Validators.required]),
@@ -33,27 +33,27 @@ export class CheckoutComponent implements OnInit {
 
   constructor(private service: CheckoutService, private location: Location) {}
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.getTotal();
   }
 
-  back() {
+  public back() {
     this.location.back();
   }
 
-  modalWindow() {
+  public modalWindow() {
     this.modal = !this.modal;
   }
 
-  resetCart() {
+  public resetCart() {
     this.cartItemList = [];
     this.service.cartItemList = this.cartItemList;
     this.checkoutForm.reset();
-    
+
     this.getTotal();
   }
 
-  chooseQty(value: string, product: Product) {
+  public chooseQty(value: string, product: Product) {
     if (value === '-') {
       if (product.qty < 2) {
         return this.removeItem(product);
@@ -65,11 +65,11 @@ export class CheckoutComponent implements OnInit {
       }
       product.qty++;
     }
-  
+
     this.getTotal();
   }
 
-  getTotal() {
+  public getTotal() {
     this.total = 0;
     for (let item of this.cartItemList) {
       this.total += item.qty * item.price;
@@ -78,7 +78,7 @@ export class CheckoutComponent implements OnInit {
     }
   }
 
-  removeItem(product: Product): void {
+  public removeItem(product: Product): void {
     let index = this.service.cartItemList.indexOf(product);
     this.service.cartItemList.splice(index, 1);
 

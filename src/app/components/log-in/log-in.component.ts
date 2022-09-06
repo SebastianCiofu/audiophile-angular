@@ -8,26 +8,26 @@ import { CheckoutService } from 'src/app/services/checkout.service';
   styleUrls: ['./log-in.component.scss'],
 })
 export class LogInComponent {
-  isLogin = true;
-  loggedIn = this.service.loggedIn;
+  public isLogin = true;
+  public loggedIn = this.service.loggedIn;
 
-  LogInForm = new FormGroup({
+  public LogInForm = new FormGroup({
     email: new FormControl(null, [Validators.required, Validators.email]),
     password: new FormControl(null, [Validators.required]),
   });
 
   constructor(private service: CheckoutService) {}
 
-  onSubmit() {
+  public onSubmit() {
     this.LogInForm.reset();
   }
-  switchTo() {
+  public switchTo() {
     this.isLogin = !this.isLogin;
   }
   logIn() {
     this.service.loggedIn = !this.service.loggedIn;
   }
-  logOut() {
+  public logOut() {
     this.service.loggedIn = !this.service.loggedIn;
     this.loggedIn = false;
   }

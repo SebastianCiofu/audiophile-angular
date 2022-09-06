@@ -8,15 +8,15 @@ import { CheckoutService } from 'src/app/services/checkout.service';
   styleUrls: ['./headphones.component.scss'],
 })
 export class HeadphonesComponent implements OnInit {
-  data: Product[] = [];
+  public data: Product[] = [];
 
   constructor(private service: CheckoutService) {}
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.data = this.service.data;
   }
 
-  showArticle(product: Product) {
+  public showArticle(product: Product) {
     this.service.article = product;
   }
 }

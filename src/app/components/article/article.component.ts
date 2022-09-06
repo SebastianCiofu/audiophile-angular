@@ -9,17 +9,17 @@ import { Other, Product } from 'src/app/interfaces/interface';
   styleUrls: ['./article.component.scss'],
 })
 export class ArticleComponent {
-  article: Product = this.service.article;
-  cartItemList: Product[] = this.service.getProducts();
-  total = 0;
+  public article: Product = this.service.article;
+  public cartItemList: Product[] = this.service.getProducts();
+  public total = 0;
 
   constructor(private location: Location, private service: CheckoutService) {}
 
-  back() {
+  public back() {
     this.location.back();
   }
 
-  addToCart(article: Product) {
+  public addToCart(article: Product) {
     this.service.addToCart(article);
     this.total = 0;
     for (let item of this.cartItemList) {
@@ -27,7 +27,7 @@ export class ArticleComponent {
     }
   }
 
-  changeArticle(item: Other) {
+  public changeArticle(item: Other) {
     let article = this.service.data.find(
       (element: Product) => element.slug === item.slug
     );

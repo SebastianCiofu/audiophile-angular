@@ -8,11 +8,11 @@ import { Product } from '../interfaces/interface';
 export class CheckoutService {
   public article: Product = data[0];
   public data: Product[] = data;
-  public cartItemList: Product[] = []
+  public cartItemList: Product[] = [];
   public total = 0;
   public loggedIn = false;
 
-  addToCart(product: Product) {
+  public addToCart(product: Product) {
     let productExists = false;
 
     for (let i in this.cartItemList) {
@@ -27,17 +27,14 @@ export class CheckoutService {
       this.cartItemList.push(product);
     }
 
-  
     this.getTotal();
   }
 
-  getProducts() {
+  public getProducts() {
     return this.cartItemList;
   }
 
-  
-
-  getTotal() {
+  public getTotal() {
     this.total = 0;
     this.cartItemList.forEach((item) => {
       this.total += item.qty * item.price;
