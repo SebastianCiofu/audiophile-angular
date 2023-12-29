@@ -13,6 +13,7 @@ export class SearchComponent implements OnInit {
   public filteredStatus: string = '';
   public filteredPrice: string = '';
   public sortedPrice: boolean = false;
+  public test: string = '';
 
   constructor(private service: CheckoutService) {}
 
